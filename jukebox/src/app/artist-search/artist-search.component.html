@@ -1,0 +1,10 @@
+<div id="search-component">
+  <!-- md-input placeholder="Search" (keyup)="search(searchBox.value)"></md-input-->
+  <input #searchBox [(ngModel)]="query" id="search-box" (keyup)="search(searchBox.value)" />
+  <div class="search-results">
+    <div *ngFor="let artist of artists | async"
+         (click)="selectArtist(artist)" class="search-result" >
+      {{artist.name}}
+    </div>
+  </div>
+</div>

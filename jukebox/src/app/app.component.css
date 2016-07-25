@@ -1,0 +1,21 @@
+md-toolbar.md-primary {
+    background: #333;
+    color: white;
+}
+
+md-nav-list {
+  width: 250px;
+  padding:0;
+  margin:0;
+}
+
+app-artist-search {
+  padding: 10px;
+  display:inline-block;
+  width: 250px;
+  height: 45px;
+}
+
+#title {
+  margin-left:3px;
+}

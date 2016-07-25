@@ -1,0 +1,54 @@
+<div *ngIf="artist != undefined">
+  <img id=splash
+       src="{{artist.splash}}"
+       [ngStyle]="{'object-position': artist.position}">
+
+  <div id="name">
+    {{artist.name}}
+
+    <div id="splash-buttons" *ngIf="editing">
+
+      <div class="button"
+           [ngClass]="{'active': artist.position == 'top'}"
+           (click)="previewPosition('top')">
+        <md-icon>filter_1</md-icon>
+      </div>
+
+      <div class="button"
+           [ngClass]="{'active': artist.position == '0 50%'}"
+           (click)="previewPosition('0 50%')">
+        <md-icon>filter_2</md-icon>
+      </div>
+
+      <div class="button"
+           [ngClass]="{'active': artist.position == 'bottom'}"
+           (click)="previewPosition('bottom')">
+        <md-icon>filter_3</md-icon>
+      </div>
+
+    </div>
+  </div>
+  <button md-fab (click)="showEdit()" *ngIf="!editing">
+    <md-icon>edit</md-icon>
+  </button>
+
+  <div id="splash-scroll" *ngIf="editing">
+    <div id="splash-options">
+      <div class="splash-option"
+           *ngFor="let option of splashOptions">
+        <img (click)=previewSplash(option)
+             src="{{option.image.thumbnailLink}}" />
+      </div>
+    </div>
+  </div>
+
+  <div id="edit-form" class="form" *ngIf="editing">
+    <h3>Update Artist</h3>
+    <form>
+      <md-input name="name" placeholder="Name" [(ngModel)]="artist.name"></md-input>
+    </form>
+    <button md-raised-button color="accent">Save</button>
+  </div>
+
+
+</div>
