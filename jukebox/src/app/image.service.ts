@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Jsonp, URLSearchParams, Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
+import {environment} from './environment';
 
 
 @Injectable()
@@ -20,8 +21,10 @@ export class ImageService {
     params.set('searchType', 'image');
     params.set('imgType', 'photo');
     params.set('imgSize', 'xxlarge');
-    params.set('cx', '001357580456511962690:fu_csfmefou');
-    params.set('key', 'AIzaSyDycOXxktA7XHlfzmdS1FTAeNI4GRdbepk');
+
+    params.set('cx', environment.googleAPI.cx);
+    params.set('key', environment.googleAPI.key);
+
     params.set('callback', 'JSONP_CALLBACK');
     params.set('q', term);
 
