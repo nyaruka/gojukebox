@@ -35,8 +35,6 @@ export class ArtistDetailComponent implements OnInit {
   navigated = false;
 
   editing: boolean = false;
-  edit_artist: Artist;
-
   splashOptions: any[];
 
   constructor(
@@ -48,7 +46,6 @@ export class ArtistDetailComponent implements OnInit {
 
   selectArtist(artist: Artist) {
     this.artist = artist;
-    this.edit_artist = Object.assign({}, artist);
   }
 
   showEdit() {
@@ -88,6 +85,11 @@ export class ArtistDetailComponent implements OnInit {
         }
       });
     */
+  }
+
+  save() {
+    this.artistService.save(this.artist)
+        .then(artist => this.editing = false);
   }
 
   previewPosition(position: string) {
