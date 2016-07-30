@@ -1,0 +1,11 @@
+<div class="album">
+  <img class="cover" src="{{album.cover}}"/>
+  <div class="name">
+    {{album.name}}
+  </div>
+  <div class=tracks>
+    <div *ngFor="let track of album.tracks">
+      {{track.name}}
+    </div>
+  </div>
+</div>

@@ -50,5 +50,11 @@
     <button md-raised-button color="accent" (click)="save()">Save</button>
   </div>
 
+  <div class="albums">
+    <app-album-detail *ngFor="let album of albums"
+                      [album]="album">
+    </app-album-detail>
+  </div>
+
 
 </div>

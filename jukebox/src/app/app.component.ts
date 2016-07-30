@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.artistService.getArtists()
+    this.artistService.getAll()
         .then(artists => this.artists = artists);
   }
 

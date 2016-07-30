@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import {MdButton} from '@angular2-material/button';
 import {MdIcon, MdIconRegistry} from '@angular2-material/icon';
@@ -7,22 +7,27 @@ import {MdInput} from '@angular2-material/input';
 import {MdCheckbox} from '@angular2-material/checkbox';
 
 import {Artist} from '../artist';
+import {Album} from '../album';
 import {ArtistService} from '../artist.service';
+import {AlbumService} from '../album.service';
 import {ImageService} from '../image.service';
 import {JSONP_PROVIDERS}  from '@angular/http';
+
+import {AlbumDetailComponent} from '../album-detail/album-detail.component'
 
 @Component({
   moduleId: module.id,
   selector: 'app-artist-detail',
   templateUrl: 'artist-detail.component.html',
   styleUrls: ['artist-detail.component.css'],
-  providers: [JSONP_PROVIDERS, ImageService],
+  providers: [JSONP_PROVIDERS, ImageService, AlbumService],
   directives: [
     MdButton,
     MdInput,
     MdCheckbox,
     MdButton,
-    MdIcon
+    MdIcon,
+    AlbumDetailComponent
   ]
 })
 
@@ -30,6 +35,8 @@ export class ArtistDetailComponent implements OnInit {
 
   @Input() artist: Artist;
   @Output() close = new EventEmitter();
+
+  albums: Album[];
   sub: any;
   error: any;
   navigated = false;
@@ -39,6 +46,7 @@ export class ArtistDetailComponent implements OnInit {
 
   constructor(
     private artistService: ArtistService,
+    private albumService: AlbumService,
     private imageService: ImageService,
     private route: ActivatedRoute,
     private router: Router
@@ -46,6 +54,7 @@ export class ArtistDetailComponent implements OnInit {
 
   selectArtist(artist: Artist) {
     this.artist = artist;
+    this.albumService.getAlbums(artist).then(albums => this.albums = albums);
   }
 
   showEdit() {
@@ -73,9 +82,7 @@ export class ArtistDetailComponent implements OnInit {
   previewSplash(option: any)  {
     //this.artist.splash = option.image.thumbnailLink
     this.artist.splash = option.link;
-
     //let artist = this.artist;
-
     // only replace the image if it succeeds
     /*this.imageService.fetchImage(option.link).then(
       function(response) {
@@ -101,7 +108,7 @@ export class ArtistDetailComponent implements OnInit {
       if (params['id'] !== undefined) {
         let id = +params['id'];
         this.navigated = true;
-        this.artistService.getArtist(id)
+        this.artistService.get(id)
             .then(artist => this.selectArtist(artist));
       } else {
         this.navigated = false;
