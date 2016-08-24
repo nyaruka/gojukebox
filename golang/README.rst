@@ -1,7 +1,14 @@
 # Getting Started
 
+All run from the golang dir:
 ```bash
 $ export GOPATH=`pwd`
-$ go install github.com/nyaruka/gojukebox
+$ export PATH=$PATH:$GOPATH/bin
+
+# generates a bundled executable, make sure /dist is built on the angular side
+$ go generate github.com/nyaruka/gojukebox && go build github.com/nyaruka/gojukebox && gojukebox
 $ ./bin/gojukebox
+
+# generates an arm executable
+env GOOS=linux GOARCH=arm go build -v github.com/nyaruka/gojukebox
 ```
