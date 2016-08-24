@@ -20,7 +20,7 @@ export class InMemoryDataService {
       {id: 3, artist: 3, name: 'Circus', cover: 'images/albums/circus.jpg'},
       {id: 4, artist: 4, name: 'Elephunk', cover: 'images/albums/elephunk.jpg'},
       {id: 5, artist: 5, name: 'Message in a Bottle', cover: 'images/albums/message_in_a_bottle.jpg'},
-      {id: 6, artist: 6, name: 'X&Y', cover: 'images/albums/message_in_a_bottle.jpg'},
+      {id: 6, artist: 6, name: 'X&Y', cover: 'images/albums/xy.jpg'},
       {id: 7, artist: 7, name: 'Sublime', cover: 'images/albums/sublime.jpg'},
       {id: 8, artist: 8, name: 'Marshall Mathers LP', cover: 'images/albums/marshall_mathers_lp.jpg'},
       {id: 9, artist: 9, name: 'Chronic', cover: 'images/albums/chronic.jpg'},
@@ -39,11 +39,11 @@ export class InMemoryDataService {
       { id: 8, name: 'Waiting All Night', length: 134, album: 1, track: 8},
       { id: 9, name: 'Wobat', length: 201, album: 1, track: 9},
       { id: 10, name: 'Wingsuit', length: 167, album: 1, track: 10},
-      { id: 11, name: 'You Enjoy Myelf', length: 281, album: 11, track: 2, disc:1}
+      { id: 11, name: 'You Enjoy Myself', length: 281, album: 11, track: 2, disc:1}
     ]
 
     return {
-      artists, albums
+      artists, albums, tracks
     };
   }
 }

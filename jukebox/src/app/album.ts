@@ -8,4 +8,16 @@ export class Album {
   aritst: number;
   cover: string;
   tracks: Track[];
+
+  constructor() {
+    console.log('init album..')
+  }
+
+  setTracks(tracks: Track[]) {
+    this.tracks = tracks;
+  }
+
+  loadTracks() {
+    console.log('loading tracks..');
+  }
 }

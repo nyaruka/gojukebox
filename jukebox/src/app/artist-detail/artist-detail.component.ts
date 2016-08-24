@@ -10,6 +10,7 @@ import {Artist} from '../artist';
 import {Album} from '../album';
 import {ArtistService} from '../artist.service';
 import {AlbumService} from '../album.service';
+import {TrackService} from '../track.service';
 import {ImageService} from '../image.service';
 import {JSONP_PROVIDERS}  from '@angular/http';
 
@@ -20,7 +21,7 @@ import {AlbumDetailComponent} from '../album-detail/album-detail.component'
   selector: 'app-artist-detail',
   templateUrl: 'artist-detail.component.html',
   styleUrls: ['artist-detail.component.css'],
-  providers: [JSONP_PROVIDERS, ImageService, AlbumService],
+  providers: [JSONP_PROVIDERS, ImageService, AlbumService, TrackService],
   directives: [
     MdButton,
     MdInput,
@@ -48,13 +49,19 @@ export class ArtistDetailComponent implements OnInit {
     private artistService: ArtistService,
     private albumService: AlbumService,
     private imageService: ImageService,
+    private trackService: TrackService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
 
   selectArtist(artist: Artist) {
     this.artist = artist;
-    this.albumService.getAlbums(artist).then(albums => this.albums = albums);
+    this.albums = null;
+    this.albumService.getAlbums(artist).then(albums => this.setAlbums(albums));
+  }
+
+  setAlbums(albums: Album[]) {
+    this.albums = albums;
   }
 
   showEdit() {
