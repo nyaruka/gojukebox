@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Album} from '../album'
-import {TrackService} from '../track.service'
+import {TrackService} from '../../tracks/track.service'
 
 @Component({
   moduleId: module.id,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import { Artist } from './artist';
-import { DataService } from './data.service'
+import { DataService } from '../data.service'
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()

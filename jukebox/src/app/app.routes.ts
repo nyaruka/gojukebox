@@ -1,5 +1,5 @@
 import { provideRouter, RouterConfig } from '@angular/router';
-import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
+import { ArtistDetailComponent } from './artists/artist-detail/artist-detail.component';
 
 const routes: RouterConfig = [
   {

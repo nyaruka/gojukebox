@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
-import {DataService} from './data.service'
+import {DataService} from '../data.service'
 import {Album} from './album';
-import {Artist} from './artist';
+import {Artist} from '../artists/artist';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()

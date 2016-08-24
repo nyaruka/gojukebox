@@ -11,9 +11,9 @@ import {MdInput} from '@angular2-material/input';
 import {MdCheckbox} from '@angular2-material/checkbox';
 import {MdIcon, MdIconRegistry} from '@angular2-material/icon';
 
-import {ArtistService} from './artist.service';
-import {Artist} from './artist'
-import {ArtistSearchComponent} from './artist-search/artist-search.component'
+import {ArtistService} from './artists/artist.service';
+import {Artist} from './artists/artist'
+import {ArtistSearchComponent} from './artists/artist-search/artist-search.component'
 
 @Component({
   moduleId: module.id,

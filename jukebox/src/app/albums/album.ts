@@ -1,8 +1,9 @@
 import {OnInit} from '@angular/core'
-import {AlbumService} from './album.service'
-import {Track} from './track'
+import {AlbumService} from '../albums/album.service'
+import {Track} from '../tracks/track'
+import { Data } from '../data'
 
-export class Album {
+export class Album extends Data {
   id: number;
   name: string;
   aritst: number;
@@ -11,6 +12,7 @@ export class Album {
 
   constructor() {
     console.log('init album..')
+    super()
   }
 
   setTracks(tracks: Track[]) {

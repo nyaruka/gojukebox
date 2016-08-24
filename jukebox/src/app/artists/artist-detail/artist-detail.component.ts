@@ -6,15 +6,15 @@ import {MdIcon, MdIconRegistry} from '@angular2-material/icon';
 import {MdInput} from '@angular2-material/input';
 import {MdCheckbox} from '@angular2-material/checkbox';
 
-import {Artist} from '../artist';
-import {Album} from '../album';
+import {Artist} from '../../artists/artist';
+import {Album} from '../../albums/album';
 import {ArtistService} from '../artist.service';
-import {AlbumService} from '../album.service';
-import {TrackService} from '../track.service';
-import {ImageService} from '../image.service';
+import {AlbumService} from '../../albums/album.service';
+import {TrackService} from '../../tracks/track.service';
+import {ImageService} from '../../metadata/image.service';
 import {JSONP_PROVIDERS}  from '@angular/http';
 
-import {AlbumDetailComponent} from '../album-detail/album-detail.component'
+import {AlbumDetailComponent} from '../../albums/album-detail/album-detail.component'
 
 @Component({
   moduleId: module.id,

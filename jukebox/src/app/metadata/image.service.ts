@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Jsonp, URLSearchParams, Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import {environment} from './environment';
+import {environment} from '../environment';
 
 
 @Injectable()

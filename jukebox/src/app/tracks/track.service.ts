@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { DataService } from './data.service';
-import { Track } from './track';
-import { Album } from './album';
+import { DataService } from '../data.service';
+import { Track } from '../tracks/track';
+import { Album } from '../albums/album';
 import { Headers, Http, Response } from '@angular/http';
 
 @Injectable()
